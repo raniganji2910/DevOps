@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Welcome | Login & Register</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+:root{--b1:#4f46e5;--b2:#7c3aed;--page:#eef0fb;--card:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#0f1220;--card:#181c2f}}
+:root[data-theme="dark"]{--page:#0f1220;--card:#181c2f}
+body{background:var(--page);font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.auth-card{background:var(--card);border:0;border-radius:1.25rem;overflow:hidden;box-shadow:0 20px 50px rgba(79,70,229,.18)}
+.brand-panel{background:linear-gradient(145deg,var(--b1),var(--b2));color:#fff;padding:3rem}
+.brand-panel li{margin-bottom:.75rem}
+.logo{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.2);display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:1.25rem}
+.logo.dark{background:linear-gradient(145deg,var(--b1),var(--b2));color:#fff}
+.btn-brand{background:linear-gradient(145deg,var(--b1),var(--b2));border:0;color:#fff;padding:.8rem;font-weight:600;border-radius:.75rem}
+.btn-brand:hover,.btn-brand:focus{color:#fff;filter:brightness(1.08)}
+.form-control{border-radius:.75rem}
+.input-group>.form-floating>.form-control{border-top-right-radius:0;border-bottom-right-radius:0}
+.input-group .btn{border-radius:0 .75rem .75rem 0}
+.link{color:var(--b1);font-weight:600;text-decoration:none;cursor:pointer}
+.link:hover{text-decoration:underline}
+.view{display:none}.view.active{display:block}
+</style>
+</head>
+<body>
+<main class="container py-4 py-md-5 min-vh-100 d-flex align-items-center">
+<div class="row justify-content-center w-100 mx-0">
+<div class="col-12 col-lg-10 col-xl-9">
+<div class="auth-card row g-0">
+
+<aside class="col-md-5 brand-panel d-none d-md-flex flex-column justify-content-between">
+<div><span class="logo">A</span> <span class="fs-4 fw-semibold ms-2 align-middle">Acme</span></div>
+<div class="my-5">
+<h2 class="fw-bold mb-3">Manage everything in one place.</h2>
+<p class="opacity-75">Secure, fast and built for teams that want to move quicker.</p>
+<ul class="list-unstyled mt-4 small">
+<li>✓ Bank-grade security</li><li>✓ Real-time collaboration</li><li>✓ 24/7 support</li>
+</ul>
+</div>
+<small class="opacity-75">© 2026 Acme Inc.</small>
+</aside>
+
+<section class="col-md-7 p-4 p-sm-5">
+<div class="d-md-none text-center mb-4"><span class="logo dark">A</span></div>
+
+<div id="login" class="view active">
+<h3 class="fw-bold mb-1">Welcome back</h3>
+<p class="text-secondary mb-4">Sign in to continue to your account.</p>
+<form id="loginForm" novalidate>
+<div class="form-floating mb-3">
+<input type="email" class="form-control" id="lEmail" placeholder="Email" autocomplete="email" required>
+<label for="lEmail">Email address</label>
+<div class="invalid-feedback">Please enter a valid email.</div>
+</div>
+<div class="input-group has-validation mb-3">
+<div class="form-floating">
+<input type="password" class="form-control" id="lPass" placeholder="Password" autocomplete="current-password" required>
+<label for="lPass">Password</label>
+</div>
+<button class="btn btn-outline-secondary toggle-pass" type="button" data-t="lPass">Show</button>
+<div class="invalid-feedback">Please enter your password.</div>
+</div>
+<div class="d-flex justify-content-between align-items-center mb-4">
+<div class="form-check"><input class="form-check-input" type="checkbox" id="remember"><label class="form-check-label" for="remember">Remember me</label></div>
+<a class="link small" href="#forgot">Forgot password?</a>
+</div>
+<button class="btn btn-brand w-100" type="submit">Sign in</button>
+<div id="lMsg" class="alert alert-success mt-3 d-none" role="alert">Login successful (demo).</div>
+</form>
+<p class="text-center text-secondary mt-4 mb-0">Don’t have an account? <a class="link" href="#register">Create one</a></p>
+</div>
+
+<div id="register" class="view">
+<h3 class="fw-bold mb-1">Create account</h3>
+<p class="text-secondary mb-4">It only takes a minute to get started.</p>
+<form id="regForm" novalidate>
+<div class="form-floating mb-3">
+<input type="text" class="form-control" id="rName" placeholder="Name" autocomplete="name" required>
+<label for="rName">Full name</label>
+<div class="invalid-feedback">Please enter your name.</div>
+</div>
+<div class="form-floating mb-3">
+<input type="email" class="form-control" id="rEmail" placeholder="Email" autocomplete="email" required>
+<label for="rEmail">Email address</label>
+<div class="invalid-feedback">Please enter a valid email.</div>
+</div>
+<div class="form-floating mb-3">
+<input type="tel" class="form-control" id="rContact" placeholder="Contact" autocomplete="tel" inputmode="tel" required>
+<label for="rContact">Contact number</label>
+<div class="invalid-feedback">Enter a valid 10-digit contact number.</div>
+</div>
+<div class="input-group has-validation mb-4">
+<div class="form-floating">
+<input type="password" class="form-control" id="rPass" placeholder="Password" autocomplete="new-password" required>
+<label for="rPass">Password</label>
+</div>
+<button class="btn btn-outline-secondary toggle-pass" type="button" data-t="rPass">Show</button>
+<div class="invalid-feedback">Password must be at least 8 characters.</div>
+</div>
+<button class="btn btn-brand w-100" type="submit">Create account</button>
+<div id="rMsg" class="alert alert-success mt-3 d-none" role="alert">Registration successful (demo).</div>
+</form>
+<p class="text-center text-secondary mt-4 mb-0">Already have an account? <a class="link" href="#login">Sign in</a></p>
+</div>
+
+</section>
+</div>
+</div>
+</div>
+</main>
+<script>
+(function(){
+var mq=window.matchMedia('(prefers-color-scheme: dark)');
+function theme(){document.documentElement.setAttribute('data-bs-theme',mq.matches?'dark':'light')}
+theme();mq.addEventListener('change',theme);
+
+function route(){
+var h=(location.hash||'#login').slice(1);if(h!=='register')h='login';
+document.getElementById('login').classList.toggle('active',h==='login');
+document.getElementById('register').classList.toggle('active',h==='register');
+}
+window.addEventListener('hashchange',route);route();
+
+document.querySelectorAll('.toggle-pass').forEach(function(b){
+b.addEventListener('click',function(){
+var i=document.getElementById(b.dataset.t),s=i.type==='password';
+i.type=s?'text':'password';b.textContent=s?'Hide':'Show';
+});
+});
+
+var rules={
+lEmail:function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},
+lPass:function(v){return v.length>0},
+rName:function(v){return v.trim().length>=2},
+rEmail:function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},
+rContact:function(v){return /^\+?\d{10,13}$/.test(v.replace(/[\s-]/g,''))},
+rPass:function(v){return v.length>=8}
+};
+function check(el){
+var ok=rules[el.id](el.value);
+el.classList.toggle('is-valid',ok);el.classList.toggle('is-invalid',!ok);
+return ok;
+}
+function wire(formId,msgId){
+var f=document.getElementById(formId),m=document.getElementById(msgId);
+var inputs=f.querySelectorAll('input.form-control');
+inputs.forEach(function(i){i.addEventListener('input',function(){if(i.classList.contains('is-invalid')||i.classList.contains('is-valid'))check(i)})});
+f.addEventListener('submit',function(e){
+e.preventDefault();
+var all=true;inputs.forEach(function(i){if(!check(i))all=false});
+m.classList.toggle('d-none',!all);
+if(all){f.reset();inputs.forEach(function(i){i.classList.remove('is-valid')})}
+});
+}
+wire('loginForm','lMsg');wire('regForm','rMsg');
+})();
+</script>
+</body>
+</html>
